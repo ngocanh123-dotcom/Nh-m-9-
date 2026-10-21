@@ -1,0 +1,221 @@
+* { box-sizing: border-box; }
+
+:root {
+  --blue: #155eef;
+  --blue-dark: #173b72;
+  --blue-light: #eef4ff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #dbe3ef;
+  --danger: #b42318;
+  --success: #067647;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #eaf1ff, #f7f9fc 55%, #e9f2ff);
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.login-card {
+  width: min(100%, 480px);
+  background: #fff;
+  border: 1px solid #e4eaf3;
+  border-radius: 22px;
+  padding: 34px;
+  box-shadow: 0 18px 55px rgba(23, 59, 114, .12);
+}
+
+.brand-icon {
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 19px;
+  background: var(--blue-light);
+  font-size: 34px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  color: var(--blue-dark);
+  font-size: 24px;
+  letter-spacing: .3px;
+}
+
+.subtitle {
+  margin: 10px 0 27px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.field-label, .section-label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.role-option { position: relative; }
+
+.role-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.role-option label {
+  min-height: 94px;
+  padding: 13px 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .15s ease;
+}
+
+.role-icon { font-size: 25px; }
+
+.role-option input:checked + label {
+  border: 2px solid var(--blue);
+  background: var(--blue-light);
+  color: var(--blue);
+  padding: 12px 4px 9px;
+}
+
+.role-option input:focus-visible + label {
+  outline: 3px solid #9dbdff;
+  outline-offset: 2px;
+}
+
+.field { margin-bottom: 18px; }
+
+.input-wrap { position: relative; }
+
+.input-wrap input {
+  width: 100%;
+  min-height: 47px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 44px 12px 13px;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+}
+
+.input-wrap input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(21, 94, 239, .11);
+}
+
+.input-wrap input.invalid { border-color: var(--danger); }
+
+.toggle-password {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  padding: 7px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 0 22px;
+  font-size: 13px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #475569;
+}
+
+.remember input { accent-color: var(--blue); }
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.submit-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  background: var(--blue);
+  color: white;
+  min-height: 48px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.submit-btn:hover { background: #104dcc; }
+
+.message {
+  display: none;
+  padding: 11px 12px;
+  border-radius: 9px;
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.message.error {
+  display: block;
+  color: var(--danger);
+  background: #fef3f2;
+}
+
+.message.success {
+  display: block;
+  color: var(--success);
+  background: #ecfdf3;
+}
+
+.footer {
+  margin: 20px 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 520px) {
+  body { padding: 14px; }
+  .login-card { padding: 25px 19px; }
+  h1 { font-size: 21px; }
+  .roles { gap: 6px; }
+  .role-option label { font-size: 12px; }
+  .options { align-items: flex-start; flex-direction: column; }
+}
